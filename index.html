@@ -3,50 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Jason Medina Martinez | Links</title>
+    <title>Terminal de Jason | Enlaces</title>
+    
+    <!-- Importar iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Importar fuente Fira Code para el estilo consola -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            /* El color verde clásico de terminal y fondo ultra oscuro */
+            --term-green: #00FF41;
+            --term-bg: #050505;
+        }
+
         body {
-            background-color: #000000;
-            color: #00FF41;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--term-bg);
+            color: var(--term-green);
+            font-family: 'Fira Code', 'Courier New', monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            margin: 0;
+            padding: 40px 20px;
+            /* Efecto de pantalla antigua (scanlines) */
+            background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 3px 3px;
+            min-height: 100vh;
         }
-        h1 { color: #00f0ff; text-shadow: 0 0 5px #00f0ff; }
-        p { color: #FCEE0A; margin-bottom: 30px; }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid var(--term-green);
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            background: rgba(0,0,0,0.8);
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed var(--term-green);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            text-shadow: 0 0 8px var(--term-green);
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            opacity: 0.85;
+        }
+
+        /* Animación del cursor parpadeante */
+        .cursor {
+            animation: blink 1s step-end infinite;
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: var(--term-green);
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .link-btn {
             background-color: transparent;
-            border: 2px solid #ff007f;
-            color: #ffffff;
-            padding: 15px 30px;
-            margin: 10px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
+            border: 1px solid var(--term-green);
+            color: var(--term-green);
+            padding: 15px 20px;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 0 10px #ff007f inset;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
         }
+
+        .link-btn i {
+            font-size: 24px;
+            margin-right: 20px;
+            width: 30px;
+            text-align: center;
+        }
+
+        /* Efecto al pasar el mouse o tocar en el celular */
         .link-btn:hover {
-            background-color: #ff007f;
-            color: #000;
-            box-shadow: 0 0 20px #ff007f;
+            background-color: var(--term-green);
+            color: var(--term-bg);
+            box-shadow: 0 0 15px var(--term-green);
+            font-weight: bold;
+        }
+
+        .link-btn:hover i {
+            color: var(--term-bg);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 
-    <h1>JONATHAN JASON MEDINA MARTINEZ</h1>
-    <p>>_ Ing. Mecatrónica | Robótica | ROS 2</p>
+    <div class="terminal-container">
+        <div class="header">
+            <!-- Título simulando la línea de comandos de Linux -->
+            <h1>jason@nexus:~$<span class="cursor"></span></h1>
+            <p>> STATUS: ONLINE</p>
+            <p>> ROLE: ING_MECATRONICA</p>
+            <p>> TARGET: enlaces_externos.sh</p>
+        </div>
 
-    <a href="https://github.com/jasonmm24" class="link-btn" target="_blank">[ GitHub ]</a>
-    <a href="https://www.linkedin.com/in/medina-martinez-jonathan-jason-86b2602b8" class="link-btn" target="_blank">[ LinkedIn ]</a>
-    <a href="mailto:jason240208@gmail.com" class="link-btn">[ Email ]</a>
-    <a href="https://github.com/OPEN-SOURCE-UPIITA" class="link-btn">[ @OPEN-SOURCE-UPIITA ]</a>
+        <div class="links-wrapper">
+            <!-- Botón GitHub -->
+            <a href="https://github.com/jasonmm24" class="link-btn" target="_blank">
+                <i class="fab fa-github"></i>
+                <span>GitHub // Portafolio</span>
+            </a>
+
+            <!-- Botón LinkedIn -->
+            <a href="https://www.linkedin.com/in/medina-martinez-jonathan-jason-86b2602b8" class="link-btn" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn // Profesional</span>
+            </a>
+
+            <!-- Botón Instagram -->
+            <a href="https://instagram.com/jjasonmartinez" class="link-btn" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram // Social</span>
+            </a>
+
+            <!-- Botón Email -->
+            <a href="mailto:jason240208@gmail.com" class="link-btn">
+                <i class="fas fa-envelope"></i>
+                <span>Email // Transmision</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>sys.exit(0)</p>
+        </div>
+    </div>
 
 </body>
 </html>
